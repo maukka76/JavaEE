@@ -23,6 +23,11 @@ public class DefaultController {
     public String second(ModelMap map){
         //Render second.jsp
         map.addAttribute("teacher", new Teachers());
+        try{
+            map.addAttribute("teachers",TeacherDAO.getTeachers());
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         return "second";
     }
     
@@ -32,6 +37,7 @@ public class DefaultController {
         try{
             TeacherDAO.addTeacher(teach);
             map.addAttribute("save_info", "Teacher added succesfully!");
+            map.addAttribute("teachers",TeacherDAO.getTeachers());
         }catch(Exception e){
             map.addAttribute("save_info", "Database error!");
             e.printStackTrace();

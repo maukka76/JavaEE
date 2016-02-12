@@ -7,6 +7,8 @@ package com.base.DAO;
 
 import com.base.models.Teachers;
 import com.base.util.HibernateUtil;
+import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -35,5 +37,17 @@ public class TeacherDAO {
         transaction.commit();
         //Release session
         session.close();
+    }
+    
+    public static List<Teachers> getTeachers() throws Exception{
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        //Use hql query language here, NOT SQL!!!
+        Query query = session.createQuery("from Teachers");
+        //Make the query to database
+        List<Teachers> lst = query.list();
+        session.close();
+        //Return list of teachers
+        return lst;
     }
 }
