@@ -10,6 +10,8 @@ C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\models\RelTa
 C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\util\HibernateUtil.java
 C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\DAO\UserDAO.java
 C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\config\SecurityConfig.java
+C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\DAO\StudentDAO.java
 C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\config\SecurityWebApplicationInitializer.java
 C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\models\User.java
 C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\config\Config.java
+C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\controller\StudentController.java
