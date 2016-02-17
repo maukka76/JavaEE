@@ -18,7 +18,6 @@ public class StudentController {
     
     @RequestMapping(value="/admin/student", method=RequestMethod.GET)
     public String renderStudent(ModelMap map){
-        map.addAttribute("isLogged", true);
         map.addAttribute("student", new Students());
         try{
             map.addAttribute("students", StudentDAO.getAllStudents());
@@ -30,7 +29,6 @@ public class StudentController {
     
     @RequestMapping(value="/admin/student", method=RequestMethod.POST)
     public String addNewTeacher(@ModelAttribute("student") Students stud,ModelMap map){
-        map.addAttribute("isLogged", true);
         try{
             StudentDAO.addStudent(stud);
             map.addAttribute("students", StudentDAO.getAllStudents());

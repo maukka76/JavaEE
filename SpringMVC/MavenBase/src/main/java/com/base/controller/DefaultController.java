@@ -13,21 +13,21 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
 public class DefaultController {
     
+    private boolean isLogged = false;
+    
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String index(ModelMap map){
-        //Define attributes you want to use in your template index.js
-        map.addAttribute("isLogged", false);
+        
         return "index";
     }
     
     @RequestMapping(value="/admin/second", method=RequestMethod.GET)
     public String second(ModelMap map){
-        map.addAttribute("isLogged", true);
+        isLogged = true;
         map.addAttribute("teacher", new Teachers());
         try{
             map.addAttribute("teachers",TeacherDAO.getTeachers());
@@ -39,7 +39,6 @@ public class DefaultController {
     
     @RequestMapping(value="/admin/teacher", method=RequestMethod.POST)
     public String addNewTeacher(@ModelAttribute("teacher") Teachers teach,ModelMap map){
-        map.addAttribute("isLogged", true);
         try{
             TeacherDAO.addTeacher(teach);
             map.addAttribute("save_info", "Teacher added succesfully!");
@@ -55,6 +54,7 @@ public class DefaultController {
     public String logout(HttpServletRequest request,HttpServletResponse resp){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(auth != null){
+            isLogged = false;
             new SecurityContextLogoutHandler().logout(request, resp, auth);
         }
         return "redirect:/";
@@ -69,5 +69,10 @@ public class DefaultController {
     @RequestMapping(value="/403",method=RequestMethod.GET)
     public String accessDenied(ModelMap map){
         return "<h1><i>You dont have permission to this page</i></h1>";
+    }
+    
+    @ModelAttribute("isLogged")
+    public boolean messages() {
+        return isLogged;
     }
 }

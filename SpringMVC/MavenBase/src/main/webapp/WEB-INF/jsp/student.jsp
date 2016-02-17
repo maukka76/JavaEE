@@ -26,7 +26,7 @@
                        <form:input cssClass="form-control" path="address"></form:input><br/>
                        <form:label path="">Email</form:label><br/>
                        <form:input cssClass="form-control" path="email"></form:input><br/>
-                        <form:label path="">Phone</form:label><br/>
+                       <form:label path="">Phone</form:label><br/>
                        <form:input cssClass="form-control" path="phone"></form:input><br/>
                        <input class="btn btn-primary" type="submit" value="Save Student"/>
                    </form:form>
