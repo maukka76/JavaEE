@@ -21,9 +21,9 @@ public class StudentDAO {
     public static void addStudent(Students stud) throws Exception{
         
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction tarnsaction = session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
         session.save(stud);
-        tarnsaction.commit();
+        transaction.commit();
         session.close();
     }
     

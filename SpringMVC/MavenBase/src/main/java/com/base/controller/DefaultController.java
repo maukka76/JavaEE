@@ -27,7 +27,9 @@ public class DefaultController {
     
     @RequestMapping(value="/admin/second", method=RequestMethod.GET)
     public String second(ModelMap map){
-        isLogged = true;
+        //isLogged = true;
+        map.addAttribute("studentPage", false);
+        map.addAttribute("isLogged", true);
         map.addAttribute("teacher", new Teachers());
         try{
             map.addAttribute("teachers",TeacherDAO.getTeachers());
@@ -71,8 +73,9 @@ public class DefaultController {
         return "<h1><i>You dont have permission to this page</i></h1>";
     }
     
+    
     @ModelAttribute("isLogged")
-    public boolean messages() {
+    public boolean isLogged() {
         return isLogged;
     }
 }

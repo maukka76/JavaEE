@@ -15,9 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class StudentController {
-    
+    private boolean studentPage = false;
     @RequestMapping(value="/admin/student", method=RequestMethod.GET)
     public String renderStudent(ModelMap map){
+        map.addAttribute("studentPage", true);
         map.addAttribute("student", new Students());
         try{
             map.addAttribute("students", StudentDAO.getAllStudents());
@@ -28,7 +29,7 @@ public class StudentController {
     }
     
     @RequestMapping(value="/admin/student", method=RequestMethod.POST)
-    public String addNewTeacher(@ModelAttribute("student") Students stud,ModelMap map){
+    public String addNewStudent(@ModelAttribute("student") Students stud,ModelMap map){
         try{
             StudentDAO.addStudent(stud);
             map.addAttribute("students", StudentDAO.getAllStudents());
@@ -36,5 +37,10 @@ public class StudentController {
             e.printStackTrace();
         }
         return "student";
+    }
+    
+    @ModelAttribute("studentPage")
+    public boolean studenPage() {
+        return studentPage;
     }
 }
