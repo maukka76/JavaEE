@@ -49,7 +49,7 @@ public class DefaultController {
             map.addAttribute("save_info", "Database error!");
             e.printStackTrace();
         }
-        return "second";
+        return "redirect:/admin/second";
     }
     
     @RequestMapping(value="/logout",method=RequestMethod.GET)

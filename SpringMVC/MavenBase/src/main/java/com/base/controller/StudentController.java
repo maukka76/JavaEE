@@ -19,6 +19,7 @@ public class StudentController {
     @RequestMapping(value="/admin/student", method=RequestMethod.GET)
     public String renderStudent(ModelMap map){
         map.addAttribute("studentPage", true);
+        map.addAttribute("isLogged", true);
         map.addAttribute("student", new Students());
         try{
             map.addAttribute("students", StudentDAO.getAllStudents());
@@ -36,7 +37,7 @@ public class StudentController {
         }catch(Exception e){
             e.printStackTrace();
         }
-        return "student";
+        return "redirect:/admin/student";
     }
     
     @ModelAttribute("studentPage")
