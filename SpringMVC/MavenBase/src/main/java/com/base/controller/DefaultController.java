@@ -40,8 +40,11 @@ public class DefaultController {
     }
     
     @RequestMapping(value="/admin/teacher", method=RequestMethod.POST)
-    public String addNewTeacher(@ModelAttribute("teacher") Teachers teach,ModelMap map){
+    public String addNewTeacher(@ModelAttribute("teacher") Teachers teach,ModelMap map,HttpServletRequest request){
+        
         try{
+            System.out.println(teach.getTName());
+            request.setCharacterEncoding("UTF-8");
             TeacherDAO.addTeacher(teach);
             map.addAttribute("save_info", "Teacher added succesfully!");
             map.addAttribute("teachers",TeacherDAO.getTeachers());

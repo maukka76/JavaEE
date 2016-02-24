@@ -19,6 +19,8 @@
                     <c:if test="${studentPage == false}">
                         <li><a href="/admin/student">Add Student</a></li>    
                     </c:if>
+                       <li><a href="/admin/course">Add Course</a></li>
+                       <li><a href="/admin/create">Create Course</a></li>    
                 </c:if>
             </ul>
         </div>

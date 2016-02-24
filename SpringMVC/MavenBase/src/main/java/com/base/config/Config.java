@@ -17,7 +17,9 @@ public class Config extends WebMvcConfigurerAdapter {
     
     @Bean  
     public UrlBasedViewResolver setupViewResolver() {  
-        UrlBasedViewResolver resolver = new UrlBasedViewResolver();  
+        UrlBasedViewResolver resolver = new UrlBasedViewResolver(); 
+        resolver.setContentType("UTF-8");
+        resolver.setContentType("text/html; charset=UTF-8");
         resolver.setPrefix("/WEB-INF/jsp/");  
         resolver.setSuffix(".jsp"); 
         resolver.setViewClass(JstlView.class);  

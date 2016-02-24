@@ -1,10 +1,10 @@
-<%-- 
+﻿<%-- 
     Document   : second
     Created on : 10.2.2016, 13:20:39
     Author     : Opiframe
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <h1>Add new teacher information</h1>
-                    <form:form action="/admin/teacher" method="POST" modelAttribute="teacher">
+                    <form:form action="/admin/teacher" method="POST" modelAttribute="teacher" accept-charset="utf-8">
                         <form:label path="">Name</form:label><br/>
                         <form:input cssClass="form-control" path="TName"></form:input><br/>
                         <form:label path="">Email</form:label><br/>
