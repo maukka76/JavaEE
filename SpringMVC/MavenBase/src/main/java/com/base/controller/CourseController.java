@@ -9,13 +9,15 @@ import com.base.DAO.CourseDAO;
 import com.base.DAO.StudentDAO;
 import com.base.DAO.TeacherDAO;
 import com.base.models.Course;
-import com.base.models.RelTable;
-import javax.servlet.http.HttpServletRequest;
+import com.base.models.NewCourseModel;
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class CourseController {
@@ -46,27 +48,25 @@ public class CourseController {
      @RequestMapping(value="/admin/create", method=RequestMethod.GET)
      public String renderCreateCourse(ModelMap map){
          map.addAttribute("isLogged", true);
-         map.addAttribute("relTable", new RelTable());
          try{
              map.addAttribute("teachers", TeacherDAO.getTeachers());
-             map.addAttribute("students", StudentDAO.getAllStudents());
              map.addAttribute("courses", CourseDAO.getCourses());
+             map.addAttribute("students", StudentDAO.getAllStudents());
          }catch(Exception e){
              e.printStackTrace();
          }
          return "create_course";
      }
      
-     @RequestMapping(value="/admin/add", method=RequestMethod.POST)
-     public String createCourse(HttpServletRequest request){
-         System.out.println(request.getParameter("course_id"));
-         System.out.println(request.getParameter("teach_id"));
+     @RequestMapping(value="/add", method=RequestMethod.POST)
+     public @ResponseBody String createCourse(@RequestBody NewCourseModel model){
+         System.out.println(model.getStudents().size());
          try{
-         CourseDAO.addCourseRelations(Integer.parseInt(request.getParameter("teach_id")), 
-                                      Integer.parseInt(request.getParameter("course_id")));
+             CourseDAO.addCourse(model);
          }catch(Exception e){
              e.printStackTrace();
          }
-         return "add_students";
+        
+         return "{status:200}";
      }
 }

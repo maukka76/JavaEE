@@ -3,6 +3,7 @@ C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\models\Stude
 C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\models\Teachers.java
 C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\controller\CourseController.java
 C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\controller\DefaultController.java
+C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\DAO\SearchDAO.java
 C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\DAO\TeacherDAO.java
 C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\models\Course.java
 C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\models\UserRoles.java
@@ -16,4 +17,7 @@ C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\DAO\StudentD
 C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\config\SecurityWebApplicationInitializer.java
 C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\models\User.java
 C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\config\Config.java
+C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\models\SearchModel.java
+C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\models\NewCourseModel.java
 C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\controller\StudentController.java
+C:\SpringProjects\JavaEE\SpringMVC\MavenBase\src\main\java\com\base\controller\SearchController.java

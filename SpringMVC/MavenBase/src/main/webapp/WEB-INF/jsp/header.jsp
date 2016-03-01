@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<link rel="stylesheet" type="text/css" href="../resources/css/bootstrap.min.css" />
+<!--<link rel="stylesheet" type="text/css" href="../resources/css/bootstrap.min.css" />
 <script src="../resources/js/jquery-2.1.4.js"></script>
-<script src="../resources/js/bootstrap.min.js"></script>
+<script src="../resources/js/bootstrap.min.js"></script>-->
 <nav class="navbar navbar-inverse" role='navigation'>
     <div class='container'>
         <div class="navbar-header">
@@ -20,7 +20,8 @@
                         <li><a href="/admin/student">Add Student</a></li>    
                     </c:if>
                        <li><a href="/admin/course">Add Course</a></li>
-                       <li><a href="/admin/create">Create Course</a></li>    
+                       <li><a href="/admin/create">Create Course</a></li>
+                       <li><a href="/admin/search">Search</a></li>
                 </c:if>
             </ul>
         </div>

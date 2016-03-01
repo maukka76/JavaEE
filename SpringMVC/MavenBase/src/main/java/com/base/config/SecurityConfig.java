@@ -41,7 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
             http.addFilterBefore(filter,CsrfFilter.class);
 
             System.out.println("CONFIGURE HTTPSECURITY");
-            http.authorizeRequests().antMatchers("/").permitAll()
+            
+            http.authorizeRequests().antMatchers("/","/add").permitAll()
             .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
             .antMatchers("/teacher/**").access("hasRole('ROLE_TEACHER') or hasRole('ROLE_ADMIN')")
             .antMatchers("/student/**").access("hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMIN')")        

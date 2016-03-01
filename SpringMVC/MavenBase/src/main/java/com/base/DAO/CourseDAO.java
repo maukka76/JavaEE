@@ -6,7 +6,9 @@
 package com.base.DAO;
 
 import com.base.models.Course;
+import com.base.models.NewCourseModel;
 import com.base.models.RelTable;
+import com.base.models.Students;
 import com.base.models.Teachers;
 import com.base.util.HibernateUtil;
 import java.util.List;
@@ -40,22 +42,29 @@ public class CourseDAO {
         session.close();
     }
     
-     public static void addCourseRelations(int t_id,int c_id) throws Exception{
+     public static void addCourse(NewCourseModel model) throws Exception{
         
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         Criteria criteriaTeach = session.createCriteria(Teachers.class);
-        criteriaTeach.add(Restrictions.eq("id",t_id));
+        criteriaTeach.add(Restrictions.eq("id",Integer.parseInt(model.getTeach_id())));
         List<Teachers> lst = criteriaTeach.list();
         
         Criteria criteriaCourse = session.createCriteria(Course.class);
-        criteriaCourse.add(Restrictions.eq("id",c_id));
+        criteriaCourse.add(Restrictions.eq("id", Integer.parseInt(model.getCourse_id())));
         List<Course> lstC = criteriaCourse.list();
         
-        RelTable table = new RelTable();
-        table.setCourse(lstC.get(0));
-        table.setTeachers(lst.get(0));
-        session.save(table);
+        for(int i = 0; i < model.getStudents().size(); i++){
+            Criteria criteriaStudent = session.createCriteria(Students.class);
+            criteriaStudent.add(Restrictions.eq("id",Integer.parseInt(model.getStudents().get(i))));
+            List<Students> lstS = criteriaStudent.list();
+            RelTable table = new RelTable();
+            table.setCourse(lstC.get(0));
+            table.setTeachers(lst.get(0));
+            table.setStudents(lstS.get(0));
+            session.save(table);
+            
+        }
         transaction.commit();
         session.close();
     }

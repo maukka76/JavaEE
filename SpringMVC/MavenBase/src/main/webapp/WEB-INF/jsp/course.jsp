@@ -11,6 +11,8 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../resources/css/bootstrap.min.css" />
+        <script src='<c:url value="/resources/js/jquery-2.1.4.js" />'></script>
+        <script src='<c:url value="/resources/js/bootstrap.min.js" />'></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Courses</title>
     </head>
